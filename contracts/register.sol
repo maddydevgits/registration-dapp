@@ -6,13 +6,9 @@ contract register {
 	bytes32[] internal email;
 	bytes32[] internal mobile;
 	bytes32[] internal password;
-	mapping(address => bool) internal users;
 		
 	function addAccount(bytes32 _name, bytes32 _email, bytes32 _mobile, bytes32 _password) public {
 
-		require(!users[msg.sender]);
-		
-		users[msg.sender]=true;
 		name.push((_name));
 		email.push((_email));
 		mobile.push((_mobile));
@@ -28,11 +24,9 @@ contract register {
 		uint i;
 		uint j=0;
 
-		require(users[msg.sender]);
-
-		if(password.length>0) {
-			for(i=0;i<password.length;i++) {
-				if((password[i])==(_password)) {
+		if(mobile.length>0) {
+			for(i=0;i<mobile.length;i++) {
+				if((mobile[i])==(_mobile)) {
 					j=i;
 				}
 			}
